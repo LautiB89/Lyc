@@ -42,6 +42,8 @@ Voy a probar que la función $f(x)=\ \uparrow$ no es computable en el lenguaje S
 Puedo probar que dado un programa de k instrucciones, paso una unica vez por cada instrucción, haciendo que mi cantidad de descripciones instantánteas también sea k (finito).  
 Tambien puedo suponer que $\Psi_P$ se indefine para cualquier programa P de k instrucciones, para llegar a la conclusión de que cada descripción instantánea apunta a una dirección diferente a las demás, haciendo que sea imposible...  
 
+Dado un programa P cualquiera en $S_2$ con k instrucciones, voy a probar que nunca se cuelga y que pasa una unica vez por instrucción.  
+
 Voy a probar que dado un computo $d_1, \dots, d_k$ para todo $i\in[1,k)$ se cumple que $j_i < j_{i+1}$.  
 
 ### Caso Base
@@ -58,7 +60,7 @@ Lo cual es verdadero para todo $j_i$.
 
 ## $S_3$: Igual que $S$ pero sin la instrucción V <- V - 1
 
-Puedo tratar de probar que la función f(x)=x no es computable con S3. Ni idea  
+Puedo tratar de probar que la función f(x)=x no es computable con S3.  
 
 # B
 
@@ -66,3 +68,45 @@ Podría probar que cada instrucción de S' se puede se puede escribir como otras
 V <- V' es una macro que ya conocemos  
 V <- V+1 es una de las intrucciones basicas  
 IF V != V' GOTO L 
+
+Voy a ver que las funciones de S' se pueden programar usando S y viceversa.
+
+Sabemos por la teorica que la asignación de variables es S-Computable.  
+La de incrementar tambien se puede hacer en S (trivial).
+Un posible programa en S que computa IF V != V' GOTO L es:  
+
+```txt
+    Z1 <- V
+    Z2 <- V'
+    Z3 <- Z1 - Z2
+    Z4 <- Z2 - Z1
+    IF Z3 != 0 GOTO L   ; salta sii Z1 > Z2
+    IF Z4 != 0 GOTO L   ; llegamos aca sii Z2 >= Z1 entonces salta sii Z1 != Z2
+```
+
+Ahora trato de programar las funciones basicas de S usando las de S':  
+Uso la macro GOTO L:  
+
+```txt
+    Z3 <- Z4
+    Z3 <- Z3 + 1
+    IF Z3 != Z4 GOTO L
+```
+
+Ahora puedo programar V <- V - 1:  
+
+```txt
+A   Z1 <- Z1 + 1
+    IF Z1 != V GOTO B
+    GOTO C
+B   Z2 <- Z2 + 1
+    GOTO A
+C   V <- Z2
+```
+
+Puedo programar IF V != 0 GOTO L como:  
+
+```txt
+    ; uso Zi una variable fresca
+    IF V != Zi GOTO L
+```
