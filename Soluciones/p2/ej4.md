@@ -60,7 +60,15 @@ Lo cual es verdadero para todo $j_i$.
 
 ## $S_3$: Igual que $S$ pero sin la instrucción V <- V - 1
 
-Puedo tratar de probar que la función f(x)=x no es computable con S3.  
+Mostrar que todos los programas en este lenguaje forman funciones con cierto esquema, y que existen otras que no cumplen ese esquema:
+$$
+f(x) = 
+\begin{cases}
+k &\text{si } x_i \neq 0 \\ 
+m &\text{si } x_i =0
+\end{cases}
+$$
+Con k,m constantes fijas.
 
 # B
 
