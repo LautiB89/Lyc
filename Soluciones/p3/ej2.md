@@ -2,6 +2,7 @@
 
 Idea general de la reducción:
 Partimos con una función (f) que sabemos que no es computable, queremos probar que g tampoco lo es.
+
 - Suponemos f computable
 - Vemos como podemos escribir g en función de f
 - Escribimos un programa que use el paso anterior
@@ -41,27 +42,33 @@ Absurdo ya que f1 no es computable. Surge de suponer que g1 era computable.
 
 ## B)
 
-$$g_2(x, y, z, w)=
+$$
+g_2(x, y, z, w)=
 \begin{cases}
 1 &\text{si } \Phi_{x}^{(1)}(z)\downarrow \land\ \Phi_{y}^{(1)}(w)\downarrow \land\ \Phi_{x}^{(1)}(z) > \Phi_{y}^{(1)}(w) \\
 0 &\text{si no} \\
-\end{cases}$$
+\end{cases}
+$$
 
 Sea k el numero del programa que computa la función identidad (sabemos que existe ya que Id es p.r.). La reducción se puede hacer con f3 del ej1:
 
-$$f_3(x,y,z)=g_2(x,k,y,z)=
+$$
+f_3(x,y,z)=g_2(x,k,y,z)=
 \begin{cases}
 1 &\text{si } \Phi_{x}^{(1)}(y)\downarrow \land\ \Phi_{k}^{(1)}(z)\downarrow \land\ \Phi_{x}^{(1)}(y) > \Phi_{k}^{(1)}(z) \\
 0 &\text{si no} \\
-\end{cases}$$
+\end{cases}
+$$
 
 Como la función identidad es total: $\Phi_{k}^{(1)}(z)\downarrow, \forall z$ y ademas es igual a z, entonces
 
-$$f_3(x,y,z)=g_2(x,k,y,z)=
+$$
+f_3(x,y,z)=g_2(x,k,y,z)=
 \begin{cases}
 1 &\text{si } \Phi_{x}^{(1)}(y)\downarrow \land\ \Phi_{x}^{(1)}(y) > z \\
 0 &\text{si no} \\
-\end{cases}$$
+\end{cases}
+$$
 
 Falta probar que es una reducción válida, para eso suponemos g2 computable y Q2 el programa que la computa, definimos el programa Q2' como:
 
@@ -82,19 +89,23 @@ Pero por transitividad implica que $\Psi_{Q2'}^{(3)}(x,y,z)=f_3(x,y,z)$, lo cual
 
 Reducción que encontré:
 
-$$f_4(x)=g_3(x,x,x)\ \dot{-}\ x=
+$$
+f_4(x)=g_3(x,x,x)\ \dot{-}\ x=
 \begin{cases}
     (x+1)\ \dot{-}\ x &\text{si } \Phi_{x}^{(1)}(x)\downarrow \land\ \Phi_{x}^{(1)}(x) \neq x \\
     0\ \dot{-}\ x &\text{si no}
-\end{cases}$$
+\end{cases}
+$$
 
 Resolviendo cada caso:
 
-$$f_4(x)=g_3(x,x,x)\ \dot{-}\ x=
+$$
+f_4(x)=g_3(x,x,x)\ \dot{-}\ x=
 \begin{cases}
     1 &\text{si } \Phi_{x}^{(1)}(x)\downarrow \land\ \Phi_{x}^{(1)}(x) \neq x \\
     0 &\text{si no}
-\end{cases}$$
+\end{cases}
+$$
 
 Falta ver que es una reducción válida:
 
@@ -119,4 +130,47 @@ Absurdo ya que f4 no es computable.
 
 ## D)
 
-**Todo**
+Sea g la función constante 1 $g(x)=1$ computable y sea i el numero del programa que la computa.
+
+La reducción que uso para g4(x,y,z) es:
+
+$$
+f_1(x,y)=g_4(i,x,y)=
+\begin{cases}
+    (\Phi_{i}^{(1)}\circ\Phi_{x}^{(1)})(y) &\text{si }  \Phi_{x}^{(1)}(y)\downarrow \land\ (\Phi_{i}^{(1)}\circ\Phi_{x}^{(1)})(y)\downarrow \\
+    0 &\text{si no}
+\end{cases}
+$$
+
+Observar que
+
+$$(\Phi_{i}^{(1)}\circ\Phi_{x}^{(1)})(y) = \Phi_{i}^{(1)}(\Phi_{x}^{(1)}(y)) = g(\Phi_{x}^{(1)}(y))=1$$
+
+Sii se cumple que $\Phi_{x}^{(1)}(y)\downarrow$. Haciendo todas las simplificaciones nuestra reducción queda como:
+
+$$
+f_1(x,y)=g_4(i,x,y)=
+\begin{cases}
+    1 &\text{si }  \Phi_{x}^{(1)}(y)\downarrow \\
+    0 &\text{si no}
+\end{cases}
+$$
+
+Supongo g4 computable, entonces existe un programa P4 que la computa. Sea P4' el siguiente programa:
+
+```txt
+    X3 <- X2
+    X2 <- X1
+    X1 <- i
+    P4
+```
+
+Por inspección:
+
+$$\Psi_{P4'}^{(2)}(x,y) = \Psi_{P4}^{(3)}(i,x,y) = g_4(i,x,y) = f_1(x,y)$$
+
+Por transitividad nos queda el absurdo:
+
+$$\Psi_{P4'}^{(2)}(x,y) = f_1(x,y)$$
+
+Ya que f1 no es computable. Surge de suponer que g4 era computable.
