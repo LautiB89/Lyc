@@ -2,7 +2,7 @@
 
 Probar que no son computables usando diagonalización.
 
-## A
+## A)
 
 Pruebo que la función f no es computable:
 
@@ -57,7 +57,7 @@ Finalmente, por la transitividad de la igualdad tenemos que: $\Psi_{Q1'}^{(1)}(x
 Absurdo ya que la función que da la salida de un programa ( $\Psi$ ) no puede ser una función no computable ( $f$ ).  
 Surge de suponer que f1 es computable.
 
-## 2)
+## B)
 
 $$
 f_2(x, y)=
@@ -190,23 +190,23 @@ Finalmente, por la transitividad de la igualdad tenemos que: $\Psi_{Q2'}^{(1)}(x
 Absurdo ya que la función que da la salida de un programa ( $\Psi$ ) no puede ser una función no computable ( $f$ ).  
 Surge de suponer que f2 es computable.
 
-## 3)
+## C)
 
 $$
 f_3(x,y,z)=
 \begin{cases}
-1 &\text{si } \Phi_{x}^{(1)}(y)\downarrow \land\ \Phi_{x}^{(1)}(y) > z \\
-0 &\text{si } \Phi_{x}^{(1)}(y)\uparrow \lor\ \Phi_{x}^{(1)}(y) \leq z
+    1 &\text{si } \Phi_{x}^{(1)}(y)\downarrow \land\ \Phi_{x}^{(1)}(y) > z \\
+    0 &\text{si } \Phi_{x}^{(1)}(y)\uparrow \lor\ \Phi_{x}^{(1)}(y) \leq z
 \end{cases}
 $$
 
 Hago P3' un programa que usa P3 (el programa de f3):
 
 Quiero que:
-$\Psi_{P3'}(x,y,z)\downarrow \iff \Phi_{x}^{(1)}(y)\uparrow \lor\ \Phi_{x}^{(1)}(y) \leq z \iff \Phi_{x}^{(3)}(y, 0, 0)\uparrow \lor\ \Phi_{x}^{(3)}(y, 0, 0) \leq z$
-$\Phi_{e}^{(3)}(x,y,z)\downarrow \iff \Phi_{x}^{(3)}(y, 0, 0)\uparrow \lor\ \Phi_{x}^{(3)}(y, 0, 0) \leq z$
-$\Phi_{e}^{(3)}(e,y,z)\downarrow \iff \Phi_{e}^{(3)}(y, 0, 0)\uparrow \lor\ \Phi_{e}^{(3)}(y, 0, 0) \leq z$
-$\Phi_{e}^{(3)}(e,y,z)\downarrow \iff \Phi_{e}^{(3)}(y, 0, 0)\uparrow \lor\ \Phi_{e}^{(3)}(y, 0, 0) \leq z$
+$\Psi_{P3'}(x,y,z)\downarrow \iff \Phi_{x}^{(1)}(y)\uparrow \lor\ \Phi_{x}^{(1)}(y) \leq z \iff \Phi_{x}^{(3)}(y, 0, 0)\uparrow \lor\ \Phi_{x}^{(3)}(y, 0, 0) \leq z$  
+$\Phi_{e}^{(3)}(x,y,z)\downarrow \iff \Phi_{x}^{(3)}(y, 0, 0)\uparrow \lor\ \Phi_{x}^{(3)}(y, 0, 0) \leq z$  
+$\Phi_{e}^{(3)}(e,y,z)\downarrow \iff \Phi_{e}^{(3)}(y, 0, 0)\uparrow \lor\ \Phi_{e}^{(3)}(y, 0, 0) \leq z$  
+$\Phi_{e}^{(3)}(e,y,z)\downarrow \iff \Phi_{e}^{(3)}(y, 0, 0)\uparrow \lor\ \Phi_{e}^{(3)}(y, 0, 0) \leq z$  
 No se cerrarlo
 
 Pruebo el caso mas simpĺe:
@@ -243,4 +243,59 @@ $$\Phi_{e}(e)=e+1 \iff \Phi_{e}^{(1)}(e)\uparrow \lor\ \Phi_{e}^{(1)}(e) \leq e 
 
 ### Reducción f3
 
-Voy a usar g3 (no es computable) para probar que f3 no es computable mostrando que g3 es una reducción de f3.
+Voy a usar g3 (no es computable) para probar que f3 no es computable mostrando que g3 es una reducción de f3. Quiero ver que si f3(x,y,z) es computable entonces hay un caso especial (la reducción) g3(x) que tambien es computable, lo hago usando g3(x) = f3(x,y,z).
+
+Supongo que f3(x,y,z) es computable, entonces existe un programa P3 que la computa. Hago un programa P3':
+
+```txt
+    X2 <- X1
+    X3 <- X1
+    P3
+```
+
+Por inspección este programa se comporta como P3 con las 3 variables iguales a la primera:  
+
+$$\Psi_{P3'}^{(1)}(x) = \Psi_{P3}^{(3)}(x,x,x) = f_3(x,x,x)$$
+
+Por definición de g3 sabemos que $g_3(x)=f_3(x,x,x)$ entonces:  
+
+$$\Psi_{P3'}^{(1)}(x) = g3(x)$$
+
+Pero esto implicaría que g3 es computable, cuando sabemos que no lo es. Absurdo, no existe ningun programa Q tal que $\Psi_{Q}^{(1)}(x)=g3(x)$ (no es computable).  
+Surge de suponer que f3 es computable.  
+
+## D)
+
+$$f_4(x)=
+\begin{cases}
+    1 &\text{si } \Phi_{x}^{(1)}(x)\downarrow \land\ \Phi_{x}^{(1)}(x) \neq x \\
+    0 &\text{si } \Phi_{x}^{(1)}(x)\uparrow \lor\ \Phi_{x}^{(1)}(x) = x \\
+\end{cases}
+$$
+
+Supongo f4 computable, entonces existe un programa P4 que lo computa. Llamo P4' al siguiente programa:
+
+```txt
+    P4
+A   IF Y != 0 GOTO A
+    Y <- 0
+```
+
+Por inspección vemos que el programa termina siempre en 0 y termina sii la salida de P4 es igual a 0.
+
+$\Psi_{P3'}^{(1)}(x) \downarrow \iff \Psi_{P3}^{(1)}(x) = 0 \iff f_4(x)=0 \iff \Phi_{x}^{(1)}(x)\uparrow \lor\ \Phi_{x}^{(1)}(x) = x$
+
+Por transitividad nos queda:
+
+$\Psi_{P3'}^{(1)}(x) \downarrow \iff \Phi_{x}^{(1)}(x)\uparrow \lor\ \Phi_{x}^{(1)}(x) = x$
+
+Sea e = #(P4') y evaluando x en e:
+
+$\Phi_{e}^{(1)}(e) \downarrow \iff \Phi_{e}^{(1)}(e)\uparrow \lor\ \Phi_{e}^{(1)}(e) = e$
+
+La segunda parte del $\lor$ es siempre falsa ya que $\Phi_{x}^{(1)}(x) = 0,\ \forall x$ y como e no es el programa vacio entonces $\Phi_{e}^{(1)}(e) = 0 \neq e$. Finalmente:
+
+$\Phi_{e}^{(1)}(e) \downarrow \iff \Phi_{e}^{(1)}(e)\uparrow$
+
+Absurdo, surge de suponer que f4 es computable.
+
