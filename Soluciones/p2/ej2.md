@@ -1,7 +1,10 @@
 ## Ej2
+
 ### Item A
+
 $C_s$ es la clase de funciones S-parciales computables:  
-Existe un programa P tq:  
+Existe un programa P tq:
+
 $$
 f(r1, ..., rm) = \Psi_P^{m}(r_1, ..., r_m)
 $$
@@ -12,17 +15,17 @@ Para probar Cs es PRC basta ver que para todas las funciones en PR existe un pro
 
 ### Inducción estructural
 
-Casos base:  
+Casos base:
 
 - s(x) se computa con Y <- X + 1 (del ej 2)
 - n(x) se computa con Y <- 0
 - u(x_n) se computa con Y <- Xi + 0 (del ej 2)
 
-Para los tres existe un programa tal que su PSI es igual a la función.  
+Para los tres existe un programa tal que su PSI es igual a la función.
 
-### Paso inductivo:  
+### Paso inductivo:
 
-Quiero ver que cualquier función en PR que puedo formar a partir de otras funciones en PR (computables) tambien es computable. Puedo formar funciones a partir de otras usando composición o recursión primitiva. 
+Quiero ver que cualquier función en PR que puedo formar a partir de otras funciones en PR (computables) tambien es computable. Puedo formar funciones a partir de otras usando composición o recursión primitiva.
 
 Composición:  
 Sea $f(x1, ..., xn) = h(g1(x1, ..., xn), ..., gk(x1, ..., xn))$ con g y h computables por los programas G y H  
@@ -36,10 +39,11 @@ Y <- 0
 H
 ```
 
-Computa f  
+Computa f
 
 Recursión primitiva:
-Sea 
+Sea
+
 $$
 f(x1, ..., xn, 0)   =  h(x1, ..., xn) \\
 f(x1, ..., xn, t+1) =  g( f(x1, ..., xn,t), x1, ..., xn, t)
@@ -47,7 +51,6 @@ $$
 
 Con H y G los programas que computan cada función
 Entonces:
-
 
         H
         IF X(n+1) = 0 GOTO E
@@ -68,7 +71,7 @@ Entonces:
 
 Una función es S-Computable si es Parcial Computable y Total.  
 Como sabemos que la función $*(x,y) = x ⋅ y$ es pr, podemos afirmar que está dentro de la clase PRC más chica y esta es un subconjunto de todas las clases PRC.  
-Entonces la función \* es S-Computable al estar en Cs por ser Cs subconjunto de PR y por ser total.  
+Entonces la función \* es S-Computable al estar en Cs por ser Cs subconjunto de PR y por ser total.
 
 ### C)
 

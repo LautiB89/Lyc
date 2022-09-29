@@ -1,4 +1,5 @@
 ### a) Vi <- k
+
 Asumo Vi = 0 o fresca
 
     Vi <- Vi + 1    \
@@ -6,8 +7,9 @@ Asumo Vi = 0 o fresca
     .                 > k veces
     .                |
     Vi <- Vi + 1    /
-    
+
 ### Vi <- Vj + k
+
 Asumo Vi = 0 o fresca y la etiqueta A fresca  
 Primer intento es destructivo con Vj
 
@@ -31,23 +33,25 @@ Segundo intento no destructivo
     A2  Vj <- Vj + 1
         Z1 <- Z1 - 1
         IF Z1 != 0 GOTO A2
-    
 
 ### IF Vi = 0 GOTO L
+
 Asumo Zi fresca y la etiqueta A fresca
 
         Zi <- Zi + 1
-        IF Vi != 0 GOTO A  
+        IF Vi != 0 GOTO A
         IF Zi != 0 GOTO L
     A   Zi <- Zi - 1
-    
+
 ### GOTO L
+
 Asumo Zi fresca
 
     Zi <- Zi + 1
     IF Zi != GOTO L
-    
+
 ### b) 2 programas que calculan f(x1,x2) = x1 + x2
+
 Primer intento:
 
         Y  <- X2
@@ -56,7 +60,7 @@ Primer intento:
     B   Y  <- Y + 1
         Z1 <- Z1 - 1
         IF Z1 != 0 GOTO B
-    
+
 Expansión:
 
         Z2 <- Z2 + 1        |
@@ -92,9 +96,10 @@ Expansión:
         Z1 <- Z1 - 1
         IF Z1 != 0 GOTO B1
 
-La segunda forma de sumar queda como ejercicio para el lector (es trivial).  
+La segunda forma de sumar queda como ejercicio para el lector (es trivial).
 
 ### c)
+
 - $\Psi_{P}^{(1)}(x_1) = x_1$
 - $\Psi_{P}^{(2)}(x_1, x_2) = x_1 + x_2$
 - $\Psi_{P}^{(3)}(x_1, x_2, x_3) = x_1 + x_2$
