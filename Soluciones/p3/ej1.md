@@ -253,20 +253,21 @@ Supongo que f3(x,y,z) es computable, entonces existe un programa P3 que la compu
     P3
 ```
 
-Por inspección este programa se comporta como P3 con las 3 variables iguales a la primera:  
+Por inspección este programa se comporta como P3 con las 3 variables iguales a la primera:
 
 $$\Psi_{P3'}^{(1)}(x) = \Psi_{P3}^{(3)}(x,x,x) = f_3(x,x,x)$$
 
-Por definición de g3 sabemos que $g_3(x)=f_3(x,x,x)$ entonces:  
+Por definición de g3 sabemos que $g_3(x)=f_3(x,x,x)$ entonces:
 
 $$\Psi_{P3'}^{(1)}(x) = g3(x)$$
 
 Pero esto implicaría que g3 es computable, cuando sabemos que no lo es. Absurdo, no existe ningun programa Q tal que $\Psi_{Q}^{(1)}(x)=g3(x)$ (no es computable).  
-Surge de suponer que f3 es computable.  
+Surge de suponer que f3 es computable.
 
 ## D)
 
-$$f_4(x)=
+$$
+f_4(x)=
 \begin{cases}
     1 &\text{si } \Phi_{x}^{(1)}(x)\downarrow \land\ \Phi_{x}^{(1)}(x) \neq x \\
     0 &\text{si } \Phi_{x}^{(1)}(x)\uparrow \lor\ \Phi_{x}^{(1)}(x) = x \\
@@ -298,4 +299,3 @@ La segunda parte del $\lor$ es siempre falsa ya que $\Phi_{x}^{(1)}(x) = 0,\ \fo
 $\Phi_{e}^{(1)}(e) \downarrow \iff \Phi_{e}^{(1)}(e)\uparrow$
 
 Absurdo, surge de suponer que f4 es computable.
-
