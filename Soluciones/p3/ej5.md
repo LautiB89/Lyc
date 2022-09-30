@@ -142,7 +142,7 @@ g_2(x,y,z)=
 \end{cases}
 $$
 
-Primero evalúo y en $i = \#(Id)$
+Primero evalúo y en i = #(Id)
 
 $$
 g_2(x,i,z)=
