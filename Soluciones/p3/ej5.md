@@ -93,11 +93,8 @@ Como pudimos escribir el programa, podemos saber su numero y lo llamamos e = #(P
 
 Por teo del parametro hay una función p.r. tq
 
-$$
-\Phi_{e}^{(3)}(x_1,x_2,x_3)
-=
-\Phi_{S_1^{2}(x_2,x_3,e)}^{(1)}(x_1)
-$$
+$$\Phi_{e}^{(3)}(x_1,x_2,x_3)=
+\Phi_{S_1^{2}(x_2,x_3,e)}^{(1)}(x_1)$$
 
 Por transitividad de la igualdad vemos que
 
