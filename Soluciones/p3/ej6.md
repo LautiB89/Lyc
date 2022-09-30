@@ -1,8 +1,10 @@
-
 # Ejercicio 6
 
-$$\exists P:
-\big(\Psi_{P}^{(1)}(x)\downarrow \iff (x = \#(P))\big)$$
+Sea e = #P
+$$
+\exists P:
+\big(\Psi_{P}^{(1)}(x)\downarrow \iff (x = e)\big)
+$$
 
 Si existe P, entonces existe Psi que es nuestra g.
 
