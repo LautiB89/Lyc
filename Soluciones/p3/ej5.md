@@ -93,14 +93,15 @@ Como pudimos escribir el programa, podemos saber su numero y lo llamamos e = #(P
 
 Por teo del parametro hay una función p.r. tq
 
-$$\Phi_{e}^{(3)}(x_1,x_2,x_3)=
-\Phi_{S_1^{2}(x_2,x_3,e)}^{(1)}(x_1)$$
+$$
+\Phi_{e}^{(3)}(x_1,x_2,x_3)=
+\Phi_{S_1^{2}(x_2,x_3,e)}^{(1)}(x_1)
+$$
 
 Por transitividad de la igualdad vemos que
 
 $$
-\Phi_{S_1^{2}(x_2,x_3,e)}^{(1)}(x_1)
-=
+\Phi_{S_1^{2}(x_2,x_3,e)}^{(1)}(x_1)=
 \Phi_{x2}^{(1)}(x3)
 $$
 
@@ -109,14 +110,12 @@ Ahora podemos componer esta función con g1.
 Supongo g1 computable y Q1 el programa que la computa, entonces puedo pasarle el numero del programa que acabo de construir.
 
 $$
-g_1(S_1^2(u,v,e))
-=
+g_1(S_1^2(u,v,e))=
 \begin{cases}
     1 &\text{si }\Phi_{S_1^2(u,v,e)}^{(1)}(1337)\downarrow \\
     0 &\text{si no}
 \end{cases} \\
-=
-\begin{cases}
+=\begin{cases}
     1 &\text{si }\Phi_{u}^{(1)}(v)\downarrow \\
     0 &\text{si no}
 \end{cases}=f_1(u,v)
