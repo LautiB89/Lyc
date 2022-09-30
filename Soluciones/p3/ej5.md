@@ -47,13 +47,15 @@ g_1(S_1^2(u,v,e))=
 \begin{cases}
     1 &\text{si }\Phi_{S_1^2(u,v,e)}^{(1)}(1337)\downarrow \\
     0 &\text{si no}
-\end{cases} \\
+\end{cases}
+$$
+
+$$
 =\begin{cases}
     1 &\text{si }\Phi_{e}^{(3)}(1337, u, v)\downarrow\\
     0 &\text{si no}
 \end{cases}
-=
-\begin{cases}
+=\begin{cases}
     1 &\text{si }\Phi_{u}^{(1)}(v)\downarrow \\
     0 &\text{si no}
 \end{cases}=f_1(u,v)
