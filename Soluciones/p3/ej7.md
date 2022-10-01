@@ -181,3 +181,57 @@ $$\Phi_e^{(1)}(y)=0 \iff \text{Im} \Phi_x^{(1)} \text{es infinita}$$
 $$\Phi_e^{(1)}(y)=y \iff \text{Im} \Phi_x^{(1)} \text{es finita}$$
 
 Los dos absurdos
+
+## h4
+
+$$
+h_4(x)=
+\begin{cases}
+    1 &\text{si } |\text{Dom} \Phi_x^{(1)}|=x\\
+    0 &\text{si no}
+\end{cases}
+$$
+
+Supongo h4 computable. Defino g4 en función de esta de forma tal que g4 sea parcial computable.
+
+$$
+g_4(x,y)=
+\begin{cases}
+    \uparrow &\text{si } h_4(x) \\
+    p(y) &\text{si no}
+\end{cases}
+=\begin{cases}
+    \uparrow &\text{si } |\text{Dom} \Phi_x^{(1)}|=x\\
+    p(x, y) &\text{si no}
+\end{cases}
+$$
+
+Y defino p(x, y) de forma tal que | Dom(p) | = x :
+
+$$
+p(x,y)=
+\begin{cases}
+    1 &\text{si } y < x\\
+    \uparrow &\text{si no}
+\end{cases}
+$$
+
+Finalmente, por TDR se existe un e tal que $\Phi_e^{(1)}(y)=g_4(e,y)$ entonces
+
+$$
+\Phi_e^{(1)}(y)=
+\begin{cases}
+    \uparrow &\text{si } |\text{Dom} \Phi_e^{(1)}|=e\\
+    p(e, y) &\text{si no}
+\end{cases}
+$$
+
+Analizo cada guarda por separado:
+
+- $|\text{Dom} \Phi_e^{(1)}|=e \iff \Phi_e^{(1)}(y)\uparrow \forall y\iff |\text{Dom} \Phi_e^{(1)}|=0$
+
+Absurdo ya que e != 0 (el programa es no nulo)
+
+- $|\text{Dom} \Phi_e^{(1)}|\neq e \iff \Phi_e^{(1)}(y) = p(e,y)\ \forall y\iff |\text{Dom} \Phi_e^{(1)}|=e$
+
+Absurdo

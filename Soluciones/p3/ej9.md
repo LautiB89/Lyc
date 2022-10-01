@@ -1,0 +1,36 @@
+# Ejercicio 9
+
+Probar que son equivalentes:
+
+- D es un conjunto de indices de programas.
+- Para todo par de programas P y Q, si #P $\in$ D y $\Psi_P=\Psi_Q$ entonces #Q $\in$ D.
+
+## I $\implies$ II
+
+Supongo que D es un conjunto de indices de programas.
+
+Quiero ver que para todo par de programas P y Q con numeros p y q, si p $\in$ D y $\Psi_P=\Psi_Q$ entonces q $\in$ D.
+
+Si D es un CIP por definición: $D=\{x:\Phi_x \in C\}$. Como p pertenece entonces se cumple que $\Phi_p \in C$.
+
+Por hipotesis sabemos que $\Phi_p = \Psi_P = \Psi_Q = \Phi_q$, finalmente
+
+$$
+\Phi_p \in C \land \Phi_q = \Phi_p \implies \Phi_q \in C \implies q \in D
+$$
+
+## II $\implies$ I
+
+Supongo que para todo para de programas P y Q con numeros p y q, se cumple que $(p \in D \land \Phi_q=\Phi_p \implies q \in D)$.
+
+Quiero ver que D es un CIP. 
+
+Supongo que D es no vacío y sean P y Q programas tal que $p \in D \land \Phi_q=\Phi_p$.
+
+Puedo definir una clase de funciones $F = \{\Phi_p\}$
+
+Se que lo estoy encarando mal, no encuentro cuales teoremas usar
+
+Contrareciproca de Rice? por el absurdo
+Probar algo -> computable -> contra de rice a un absurdo
+
