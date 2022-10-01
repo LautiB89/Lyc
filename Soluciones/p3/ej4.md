@@ -50,7 +50,7 @@ Supongo f' computable, entonces existe un programa P' que la computa. Escribo el
 
 ```txt
     P
-A   IF Y = Phi_X(X) GOTO A
+A   IF Y != h(x) GOTO A
 ```
 
 Por inspección del programa Q se ve que:

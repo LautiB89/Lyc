@@ -48,11 +48,11 @@ Acá llegamos a un absurdo:
 
 Supongo $e \in \text{Im }\Phi_e^1$, entonces:
 
-$e \in \text{Im }\Phi_e^1 \iff \Phi_e^{(1)}(y)\uparrow\ \forall y \iff \text{Im }\Phi_e^1 = \emptyset \iff e \not\in \text{Im }\Phi_e^1$
+$e \in \text{Im }\Phi_e^1 \iff \Phi_e^{(1)}(y)\uparrow\ \forall y \iff \text{Im }\Phi_e^1 = \emptyset \implies e \not\in \text{Im }\Phi_e^1$
 
 Supongo $e \not\in \text{Im }\Phi_e^1$, entonces:
 
-$e \not\in \text{Im }\Phi_e^1 \iff \Phi_e^{(1)}(y) = e\ \forall y \iff e \in \text{Im }\Phi_e^1$
+$e \not\in \text{Im }\Phi_e^1 \iff \Phi_e^{(1)}(y) = e\ \forall y \implies e \in \text{Im }\Phi_e^1$
 
 ### Comentario de la función a elegir
 
@@ -132,13 +132,13 @@ $$
 
 Divido en dos casos distintos:
 
-Supongo que $\Phi_e^{(1)}(y)\uparrow$:
+Supongo la primera guarda y veo que implica:
 
-$\Phi_e^{(1)}(y)\uparrow \iff \Phi_e^{(1)}(y)\downarrow \land\ \Phi_e^{(1)}(y) > e$
+$\Phi_e^{(1)}(y)\downarrow \land\ \Phi_e^{(1)}(y) > e \iff \Phi_e^{(1)}(y)\uparrow \forall y$
 
-Supongo que $\Phi_e^{(1)}(y)\downarrow$:
+Supongo la segunda guarda y veo que implica:
 
-$\Phi_e^{(1)}(y)\downarrow \iff \Phi_e^{(1)}(y) = e+1 \iff \Phi_e^{(1)}(y)\uparrow \lor\ \Phi_e^{(1)}(y) \leq e$
+$\Phi_e^{(1)}(y)\uparrow \lor\ \Phi_e^{(1)}(y) \leq e \iff \Phi_e^{(1)}(y) = e+1 \implies \Phi_e^{(1)}(y)\downarrow \land\ \Phi_e^{(1)}(y) > e$
 
 Los dos casos dan absurdo que surge de suponer h2 computable.
 
@@ -176,9 +176,13 @@ $$
 \end{cases}
 $$
 
-$$\Phi_e^{(1)}(y)=0 \iff \text{Im} \Phi_x^{(1)} \text{es infinita}$$
+Supongo primera guarda y veo que implica absurdo:
 
-$$\Phi_e^{(1)}(y)=y \iff \text{Im} \Phi_x^{(1)} \text{es finita}$$
+$\text{Im} \Phi_x^{(1)} \text{es infinita} \iff \Phi_e^{(1)}(y)=0\ \forall y \implies \text{Im} \Phi_x^{(1)} \text{es finita}$
+
+Supongo segunda guarda y veo que implica absurdo:
+
+$\text{Im} \Phi_x^{(1)} \text{es finita} \iff \Phi_e^{(1)}(y)=y\ \forall y \implies \text{Im} \Phi_x^{(1)} \text{es infinita}$
 
 Los dos absurdos
 
@@ -228,10 +232,14 @@ $$
 
 Analizo cada guarda por separado:
 
-- $|\text{Dom} \Phi_e^{(1)}|=e \iff \Phi_e^{(1)}(y)\uparrow \forall y\iff |\text{Dom} \Phi_e^{(1)}|=0$
+Supongo la primera guarda y veo que implica absurdo:
+
+$|\text{Dom} \Phi_e^{(1)}|=e \iff \Phi_e^{(1)}(y)\uparrow \forall y\iff |\text{Dom} \Phi_e^{(1)}|=0 \implies |\text{Dom} \Phi_e^{(1)}|\neq e$
 
 Absurdo ya que e != 0 (el programa es no nulo)
 
-- $|\text{Dom} \Phi_e^{(1)}|\neq e \iff \Phi_e^{(1)}(y) = p(e,y)\ \forall y\iff |\text{Dom} \Phi_e^{(1)}|=e$
+Supongo la segunda guarda y veo que implica absurdo:
+
+- $|\text{Dom} \Phi_e^{(1)}|\neq e \iff \Phi_e^{(1)}(y) = p(e,y)\ \forall y\implies |\text{Dom} \Phi_e^{(1)}|=e$
 
 Absurdo

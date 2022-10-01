@@ -1,13 +1,27 @@
 # Ejercicio 6
 
-Sea e = #P
+Demostrar que existe un programa p tal que $\Psi_p^{(1)}(x)\downarrow \iff x=\#p$
+
+Defino una función g : $\N^2 \to \N$ como:
+
 $$
-\exists P:
-\big(\Psi_{P}^{(1)}(x)\downarrow \iff (x = e)\big)
+g(x,y)=
+\begin{cases}
+    42 &\text{si } x = y \\
+    \uparrow &\text{si no}
+\end{cases}
 $$
 
-Si existe P, entonces existe Psi que es nuestra g.
+Es trivial ver que es parcial computable. Sabiendo esto podemos usar el teorema del parametro sobre g:
 
-Existe P tq si se define entonces x = #
+Por el teo sabemos que existe un programa con numero e tal que $\Phi_e^{(1)}(y)=g(e,y)$, finalmente:
 
-Existe P tq si x = # entonces se define
+$$
+\Phi_e^{(1)}(x)=
+\begin{cases}
+    42 &\text{si } x = e \\
+    \uparrow &\text{si no}
+\end{cases}
+$$
+
+Por la definición de $\Phi$ se ve que $\Phi_e^{(1)}(x)\downarrow \iff x = e$ como queriamos probar.
