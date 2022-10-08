@@ -1,4 +1,7 @@
+PARS := -V geometry:margin=2cm
 
-all:
-	cat *.md >> todos.md
-	pandoc todos.md -o todos.pdf
+%: %.md
+	pandoc ${PARS} $< -o $@.pdf
+
+clean:
+	rm -f ej*.pdf
