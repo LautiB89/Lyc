@@ -1681,11 +1681,11 @@ $$
 g_3(x,y) =
 \begin{cases}
     x+1 &\text{si } C_3(x) \\
-    0 &\text{si no}
+    \uparrow &\text{si no}
 \end{cases}=
 \begin{cases}
     x+1 &\text{si } \text{Dom }\Phi_x^{(1)} \subseteq \{0,\dots,x\} \\
-    0 &\text{si no}
+    \uparrow &\text{si no}
 \end{cases}
 $$
 
