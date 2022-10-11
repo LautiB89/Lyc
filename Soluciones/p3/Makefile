@@ -1,7 +1,10 @@
 PARS := -V geometry:margin=2cm
 
-%: %.md
-	pandoc ${PARS} $< -o $@.pdf
+p3.pdf: $(wildcard ej*.md)
+	pandoc ${PARS} $^ -o $@
+
+%.pdf: %.md
+	pandoc ${PARS} $< -o $@
 
 clean:
-	rm -f ej*.pdf
+	rm -f *.pdf

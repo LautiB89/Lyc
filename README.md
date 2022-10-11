@@ -8,6 +8,6 @@
   - [Soluciones](Soluciones/p2)
 - Práctica 3: Funciones No-Computables y Conjuntos C.E.
   - [Enunciado](Enunciados/p3.pdf)
-  - [Soluciones](Soluciones/p3/p3-completa.md)
+  - [Soluciones](Soluciones/p3/p3.pdf)
 
 ---
